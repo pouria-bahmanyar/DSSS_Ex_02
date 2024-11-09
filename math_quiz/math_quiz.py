@@ -1,24 +1,22 @@
 import random
 
 
-def function_A(min, max):
+def Random_Nmber(min, max):
     """
     choose random number.
     """
     return random.randint(min, max)
 
 
-def function_B():
+def Random_Operation():
     """
     This function chooses randomly between the three mathematical operations:        ############
-    
     """
     return random.choice(['+', '-', '*'])
 
-
-def function_C(first_number, second_number, operation):
+def Create_Q_and_A(first_number, second_number, operation):
     problem = f"{first_number} {operation} {second_number}"
-    if operation == '+':                                                                  #####################
+    if operation == '+':                                                                  
         answer = first_number + second_number
     elif operation == '-': 
         answer = first_number - second_number
@@ -28,22 +26,19 @@ def function_C(first_number, second_number, operation):
 
 def math_quiz():
     """
-    the function provides a math question for the user                                 ############
-    
+    the function provides a math question for the user                                 
     """
-    
     total_points = 0
-    total_questions = 5                               ##########################
-
+    total_questions = 5                               
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
     for _ in range(total_questions):
-        first_random_number = function_A(1, 10) 
-        second_random_number = function_A(1, 5) 
-        random_operation = function_B()
+        first_random_number = Random_Nmber(1, 10) 
+        second_random_number = Random_Nmber(1, 5) 
+        random_operation = Random_Operation()
 
-        PROBLEM, ANSWER = function_C(first_random_number, second_random_number, random_operation)
+        PROBLEM, ANSWER = Create_Q_and_A(first_random_number, second_random_number, random_operation)
         print(f"\nQuestion: {PROBLEM}")
         while True:
             useranswer = input("Your answer: ")
@@ -52,12 +47,10 @@ def math_quiz():
                 break  # Exit the loop if input is valid
             except ValueError:
                 print("Invalid input! Please enter a number.")
-
-            
-
+          
         if useranswer == ANSWER:
             print("Correct! You earned a point.")
-            total_points += (1)                                           ###################
+            total_points += (1)                                           
         else:
             print(f"Wrong answer. The correct answer is {ANSWER}.")
 
